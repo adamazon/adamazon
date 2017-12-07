@@ -1,0 +1,13 @@
+.c3 {
+  .c3-axis, .c3-legend-item, .c3-axis-x {
+    fill: #343434;
+  }
+
+  .c3-tooltip {
+    background: white;
+
+    th {
+      background: $amazon-color;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+div.review {
+  background: #efefef;
+  padding: 10px 15px 5px;
+  max-width: 700px;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+
+  div.grade {
+    float: right;
+    padding: 10px 0;
+    position: relative;
+
+    .explanation {
+      width: 250px;
+      top: -28px;
+      height: 38px;
+      right: 0;
+
+      &::after {
+        margin-top: 7px;
+        margin-left: 40px;
+      }
+    }
+  }
+
+  h3 {
+    margin: 0 0 10px;
+    position: relative;
+
+    .explanation {
+      height: 22px;
+      left: 0;
+      top: -18px;
+
+      &::after {
+        border-right: 1px solid #343434;
+        border-left: 0;
+        margin-left: 305px;
+        margin-top: 6px;
+        width: 30px;
+        height: 16px;
+      }
+    }
+  }
+
+  p.review-text {
+    font-style: italic;
+    position: relative;
+
+    .explanation {
+      height: 22px;
+      right: 0;
+      margin-top: 10px;
+
+      &::after {
+        margin-top: -15px;
+        margin-left: -115px;
+      }
+    }
+  }
+
+  p.helpfulness {
+    font-size: 0.8em;
+    position: relative;
+
+    .explanation {
+      height: 22px;
+      margin-top: 22px;
+      left: 110px;
+
+      &::after {
+        margin-top: -15px;
+        margin-left: -115px;
+      }
+    }
+  }
+
+  .explanation {
+    position: absolute;
+    font-size: 12px;
+    background: #343434;
+    padding: 3px 5px;
+    border-radius: 3px;
+    border-left: 5px solid $amazon-color;
+    color: white;
+    line-height: 1.3em;
+    font-style: italic;
+    font-weight: normal;
+    font-family: Raleway, sans-serif;
+
+    &::after {
+      content: ' ';
+      height: 10px;
+      display: block;
+      border-left: 1px solid #343434;
+      border-bottom: 1px solid #343434;
+      width: 100px;
+    }
+  }
+}
