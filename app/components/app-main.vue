@@ -10,7 +10,9 @@
         Reviews on Amazon are done by thousands of people to share their advices and analysis concerning products
         in dozens of categories and subcategories. These reviews can influence positively or negatively the potential
         buyers to make their purchase a reality or buy an other product. We will here try to focus on which factors
-        can determine whether a review is <em>good</em> and which product's features can influence reviews.
+        can determine whether a review is <em>good</em> and which product's features can influence reviews. See
+        this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and
+        <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">detailed analysis</a>.
       </p>
       <img src="../images/amazon.svg" data-aos="fade" />
     </section>
