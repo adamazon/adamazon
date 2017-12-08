@@ -35,27 +35,27 @@
           <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="300"></i>
           <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="400"></i>
           <i class="fa fa-star-o" data-aos="zoom-in" data-aos-delay="500"></i>
-          <span class="explanation" data-aos="fade" data-aos-offset="300">
+          <span class="explanation" data-aos="fade" data-aos-offset="400">
             The product's score given by the reviewer,<br />between 1 and 5 stars
           </span>
         </div>
         <h3>
           Review by
           <strong>Electronic Junky</strong>
-          <span class="explanation" data-aos="fade" data-aos-offset="300">
+          <span class="explanation" data-aos="fade" data-aos-offset="400">
             Reviewers are identified to allow gathering of all their reviews
           </span>
         </h3>
         <p class="review-text">
           <strong>Good rally game</strong> &bull;
           If you like rally cars get this game you will have fun. It is more oriented to &#34;European market&#34; since here in America there isn't a huge rally fan party. Music it is very European and even the voices from the game very &#34;English&#34; accent. The multiplayer isn't the best but it works just ok.
-          <span class="explanation" data-aos="fade" data-aos-offset="300">
+          <span class="explanation" data-aos="fade" data-aos-offset="400">
             The review text containing the product analysis
           </span>
         </p>
         <p class="helpfulness">
           <strong>13</strong> of 15 people found this review useful
-          <span class="explanation" data-aos="fade" data-aos-offset="300">
+          <span class="explanation" data-aos="fade" data-aos-offset="400">
             Other customers can say if the review was helpful
           </span>
         </p>
