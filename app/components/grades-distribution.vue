@@ -1,5 +1,5 @@
 <template>
-  <div ref="gradesDistribution" data-aos="fade"></div>
+  <div ref="gradesDistribution" data-aos="fade" class="colored-axis"></div>
 </template>
 
 <script>
@@ -22,7 +22,17 @@
         },
         axis: {
           x: {
-            type: 'category'
+            type: 'category',
+            label: {
+              text: 'Product rating',
+              position: 'outer'
+            }
+          },
+          y: {
+            label: {
+              text: 'Number of products',
+              position: 'outer'
+            }
           }
         },
         grid: {
@@ -34,3 +44,11 @@
     }
   }
 </script>
+
+<style lang="scss" ref="stylesheet/scss">
+  @import '../scss/vars';
+
+  .colored-axis .c3-axis.c3-axis-x .tick text {
+    fill: $amazon-color;
+  }
+</style>

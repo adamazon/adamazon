@@ -50,12 +50,12 @@ div.review {
     position: relative;
 
     .explanation {
-      height: 22px;
+      height: 38px;
       right: 0;
-      margin-top: 20px;
+      margin-top: 15px;
 
       &::after {
-        margin-top: -15px;
+        margin-top: -23px;
         margin-left: -115px;
       }
     }
@@ -68,11 +68,12 @@ div.review {
     .explanation {
       height: 22px;
       margin-top: 22px;
-      left: 110px;
+      left: 80px;
 
       &::after {
         margin-top: -15px;
-        margin-left: -115px;
+        margin-left: -85px;
+        width: 70px;
       }
     }
   }

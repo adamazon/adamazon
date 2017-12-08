@@ -17,7 +17,7 @@
       <img src="../images/amazon.svg" data-aos="fade" />
     </section>
     <section>
-      <h2>Discovering the data</h2>
+      <h2>What is a review?</h2>
       <p>
         We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down">[1]</a></sup>
         containing Amazon product reviews (142.8 million) and metadata. We will more precisely focus on the Video Games section
@@ -50,7 +50,8 @@
           <strong>Good rally game</strong> &bull;
           If you like rally cars get this game you will have fun. It is more oriented to &#34;European market&#34; since here in America there isn't a huge rally fan party. Music it is very European and even the voices from the game very &#34;English&#34; accent. The multiplayer isn't the best but it works just ok.
           <span class="explanation" data-aos="fade" data-aos-offset="400">
-            The review text containing the product analysis
+            The review text containing the product analysis<br />
+            preceded by a summary
           </span>
         </p>
         <p class="helpfulness">
