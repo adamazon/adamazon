@@ -74,7 +74,18 @@
         went wrong for the customer. But are these reviews representative and equally distributed for all the products?
       </p>
       <reviews-distribution></reviews-distribution>
-      <p>We can see here an extract of the products database (one on twenty product) sorted by the number of reviews.</p>
+      <p>
+          We can see here an extract of the products database (one on twenty product) sorted by the number of reviews.
+          Some products are attracting more attention; we will focus on them in our next observations.
+      </p>
+      <reviews-numbers></reviews-numbers>
+    </section>
+    <section>
+      <h2>Who is a reviewer?</h2>
+      <p>
+        Now that we know what a review is, let's find out what behavior defines reviewers of the <em>video games</em>
+        category.
+      </p>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
@@ -89,12 +100,14 @@
   import c3 from 'c3'
   import GradesDistribution from './grades-distribution.vue';
   import ReviewsDistribution from './reviews-distribution.vue';
+  import ReviewsNumbers from './reviews-numbers.vue';
 
   export default {
     name: 'app-main',
     components: {
       GradesDistribution,
-      ReviewsDistribution
+      ReviewsDistribution,
+      ReviewsNumbers
     }
   };
 </script>

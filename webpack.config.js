@@ -40,6 +40,10 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.txt$/,
+        loader: 'raw-loader'
+      },
       { test: /\.(png|jpe?g|gif|svg|ttf|woff2?|eot|ico)(\?.*)?$/, loader: 'url-loader', query: { limit: 10000, name: 'assets/[name].[ext]'}}
     ]
   },

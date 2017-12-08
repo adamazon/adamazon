@@ -6,6 +6,7 @@
   import c3 from 'c3';
 
   let chart;
+  const reviews = require('../data/reviews.json');
 
   export default {
     name: 'reviews-distribution',
@@ -13,19 +14,25 @@
       chart = c3.generate({
         bindto: this.$refs.reviewsDistribution,
         data: {
-          json: require('../data/reviews.json'),
+          json: reviews,
           keys: {
             value: ['Number of reviews'],
           },
+          type: 'area'
         },
         axis: {
           x: {
             tick: {
-              values: [...Array(27).keys()].map(val => val*20)
+              count: 270, // C3.js bug, can't put less ticks
+              format: (x) => Math.round(x) + 1
             },
             label: {
-              text: 'Product',
+              text: 'Product rank',
               position: 'outer'
+            },
+            padding: {
+              left: 0,
+              right: 0
             }
           },
           y: {
@@ -38,6 +45,11 @@
         grid: {
           y: {
             show: true
+          }
+        },
+        tooltip: {
+          format: {
+            title: function (x) { return reviews[x]['Product ID']; }
           }
         }
       });
