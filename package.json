@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "babel-core": "latest",
-    "babel-eslint": "latest",
+    "babel-eslint": "^8.0.3",
     "babel-loader": "latest",
     "babel-plugin-transform-runtime": "latest",
     "babel-preset-es2015": "latest",
@@ -43,7 +43,7 @@
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.3",
     "webpack": "^2.1.0-beta.22",
-    "webpack-dev-server": "^2.1.0-beta.8"
+    "webpack-dev-server": "^2.9.7"
   },
   "author": "Quentin de Longraye",
   "license": "MIT"

@@ -1,13 +1,12 @@
+@import '~c3/c3.min.css';
+
 .c3 {
-  .c3-axis, .c3-legend-item, .c3-axis-x {
-    fill: #343434;
-  }
-
   .c3-tooltip {
-    background: white;
-
     th {
       background: $amazon-color;
     }
+  }
+  .c3-chart-lines .c3-circles .c3-circle {
+    display: none;
   }
 }

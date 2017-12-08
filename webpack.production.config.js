@@ -38,6 +38,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js'],
+    alias: {
+      vue: 'vue/dist/vue.min'
+    }
   },
   plugins: [
     new uglifyJsPlugin({

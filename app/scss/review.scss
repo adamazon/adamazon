@@ -31,15 +31,16 @@ div.review {
     .explanation {
       height: 22px;
       left: 0;
-      top: -18px;
+      top: -20px;
 
       &::after {
-        border-right: 1px solid #343434;
-        border-left: 0;
-        margin-left: 305px;
-        margin-top: 6px;
-        width: 30px;
-        height: 16px;
+        border-left: 1px solid #343434;
+        border-top: 1px solid #343434;
+        border-bottom: 1px solid #343434;
+        margin-left: -28px;
+        margin-top: -8px;
+        width: 15px;
+        height: 29px;
       }
     }
   }
@@ -51,7 +52,7 @@ div.review {
     .explanation {
       height: 22px;
       right: 0;
-      margin-top: 10px;
+      margin-top: 20px;
 
       &::after {
         margin-top: -15px;

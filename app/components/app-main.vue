@@ -30,44 +30,50 @@
       </p>
       <div class="review">
         <div class="grade">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star-o"></i>
-          <span class="explanation" data-aos="fade" data-aos-offset="400">
-            The product's score given by the reviewer, between 1 and 5 stars
+          <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="100"></i>
+          <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="200"></i>
+          <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="300"></i>
+          <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="400"></i>
+          <i class="fa fa-star-o" data-aos="zoom-in" data-aos-delay="500"></i>
+          <span class="explanation" data-aos="fade" data-aos-offset="300">
+            The product's score given by the reviewer,<br />between 1 and 5 stars
           </span>
         </div>
         <h3>
-          Good rally game
-          <small>
-            review by
-            <strong>Electronic Junky</strong>
-            <span class="explanation" data-aos="fade" data-aos-offset="400">
-              Reviewers can be identified to allow gathering all their reviews
-            </span>
-          </small>
+          Review by
+          <strong>Electronic Junky</strong>
+          <span class="explanation" data-aos="fade" data-aos-offset="300">
+            Reviewers are identified to allow gathering of all their reviews
+          </span>
         </h3>
         <p class="review-text">
+          <strong>Good rally game</strong> &bull;
           If you like rally cars get this game you will have fun. It is more oriented to &#34;European market&#34; since here in America there isn't a huge rally fan party. Music it is very European and even the voices from the game very &#34;English&#34; accent. The multiplayer isn't the best but it works just ok.
-          <span class="explanation" data-aos="fade" data-aos-offset="400">
+          <span class="explanation" data-aos="fade" data-aos-offset="300">
             The review text containing the product analysis
           </span>
         </p>
         <p class="helpfulness">
           <strong>13</strong> of 15 people found this review useful
-          <span class="explanation" data-aos="fade" data-aos-offset="400">
+          <span class="explanation" data-aos="fade" data-aos-offset="300">
             Other customers can say if the review was helpful
           </span>
         </p>
       </div>
       <p>
-        Interesting data is mostly textual. The <em>helpfulness</em> level of each review is a good way to understand
-        if the review was relevant. It is determined by the vote of other customers. But before focusing on this aspect,
-        let's see how reviews grades are distributed among products:
+        Relevant data is mostly textual. The <em>helpfulness</em> level of each review is a good way to understand
+        if the review was useful for the other customers. It is determined by the vote of other customers. But before
+        focusing on this aspect, let's see how reviews grades are distributed among products:
       </p>
-      <div ref="gradesDistribution" data-aos="fade"></div>
+      <grades-distribution></grades-distribution>
+      <p>
+        Users tend to give priority to the highest grades, 4 <i class="fa fa-star"></i> and 5 <i class="fa fa-star"></i>
+        are representing more than 50% of the overall. There is a a slightly increase between 2 <i class="fa fa-star"></i>
+        and 1 <i class="fa fa-star"></i>, which can be understood by the will to <em>punish</em> products when something
+        went wrong for the customer. But are these reviews representative and equally distributed for all the products?
+      </p>
+      <reviews-distribution></reviews-distribution>
+      <p>We can see here an extract of the products database (one on twenty product) sorted by the number of reviews.</p>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
@@ -80,21 +86,14 @@
 
 <script>
   import c3 from 'c3'
-
-  let chart;
+  import GradesDistribution from './grades-distribution.vue';
+  import ReviewsDistribution from './reviews-distribution.vue';
 
   export default {
     name: 'app-main',
-    mounted () {
-      chart = c3.generate({
-        bindto: this.$refs.gradesDistribution,
-        data: {
-          columns: [
-            ['data1', 30, 200, 100, 400, 150, 250]
-          ],
-          type: 'bar'
-        }
-      });
+    components: {
+      GradesDistribution,
+      ReviewsDistribution
     }
   };
 </script>
