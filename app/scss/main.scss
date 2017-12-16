@@ -24,7 +24,7 @@ main {
     font-weight: normal;
     font-family: Oswald, sans-serif;
     font-size: #{2.4 - ($i - 1)*0.5}em;
-    margin: #{50 - ($i * 10)}px 0 10px;
+    margin: #{70 - ($i * 10)}px 0 10px;
   }
 }
 
@@ -80,6 +80,10 @@ section {
 
   &.citations {
     font-size: 0.8em;
+  }
+
+  div.graph {
+    margin: 30px 0;
   }
 }
 

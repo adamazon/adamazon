@@ -36,7 +36,7 @@
           <i class="fa fa-star" data-aos="zoom-in" data-aos-delay="400"></i>
           <i class="fa fa-star-o" data-aos="zoom-in" data-aos-delay="500"></i>
           <span class="explanation" data-aos="fade" data-aos-offset="400">
-            The product's score given by the reviewer,<br />between 1 and 5 stars
+            The product's grade given by<br />the reviewer, between 1 and 5 stars
           </span>
         </div>
         <h3>
@@ -90,8 +90,9 @@
     </section>
     <section>
       <p>
-        The above visualisation represents each reviewer as a dot. The population is split into two groups, each group
-        produced 50% of the total number of reviews (<strong>115,890</strong> reviews each).
+        The above visualisation represents each of the <strong class="colored">24,303 reviewers</strong> as a dot. The population is split into two groups, so that each group
+        produced 50% of the total number of reviews (<strong>115,890</strong> reviews each). We can see that few
+        customers wrote the majority of reviews.
       </p>
       <reviewers-distribution></reviewers-distribution>
       <p>
@@ -107,9 +108,39 @@
       <h2>Finding correlations</h2>
       <p>
         We will use machine learning methods to find out which factors should naturally be taken into account to predict
-        the final rank. To do that, we use a neural network which will be trained on several features to predict the final
-        helpful rate.
+        the final <em>helpfulness</em> of a review.
       </p>
+      <h3>The dumb network</h3>
+      <p>
+        To better understand data distribution and be more critical about the results found by the neural network, we will
+        introduce features progressively. We first only use the product's grade given by the review.
+        We have 5 possibilities between 1 and 5 <i class="fa fa-star"></i>. We ask the neural network if the review is
+        <em>useful</em> (more than 66% of positive evaluations), <em>not useful</em> (less than 33% of positive evaluations)
+        or <em>controversial</em>. After stabilization, we get the final results:
+      </p>
+      <ul>
+        <li>
+          <i class="fa fa-star" v-for="n in 5"></i>: the review is useful
+        </li>
+        <li>
+          <i class="fa fa-star" v-for="n in 4"></i>: the review is useful
+        </li>
+        <li>
+          <i class="fa fa-star" v-for="n in 3"></i>: the review is useful
+        </li>
+        <li>
+          <i class="fa fa-star" v-for="n in 2"></i>: the review is polemical
+        </li>
+        <li>
+          <i class="fa fa-star" v-for="n in 1"></i>: the review is not useful
+        </li>
+      </ul>
+      <p>
+        This means that any review attributing 1 <i class="fa fa-star"></i> to a product will be considered as <em>not useful</em>,
+        and any review attributing 2 <i class="fa fa-star"></i> will be considered as <em>polemical</em>. Other reviews
+        will be considered <em>useful</em>. In practice, this network does not help a lot, but it reveal one thing:
+      </p>
+      <helpfulness-distribution></helpfulness-distribution>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
@@ -124,11 +155,13 @@
   import GradesDistribution from './grades-distribution.vue';
   import ReviewsDistribution from './reviews-distribution.vue';
   import ReviewsNumbers from './reviews-numbers.vue';
-  import ReviewersDistribution from "./reviewers-distribution.vue";
+  import ReviewersDistribution from './reviewers-distribution.vue';
+  import HelpfulnessDistribution from './helpfulness-distribution.vue';
 
   export default {
     name: 'app-main',
     components: {
+      HelpfulnessDistribution,
       ReviewersDistribution,
       GradesDistribution,
       ReviewsDistribution,

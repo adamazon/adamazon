@@ -1,21 +1,26 @@
 <template>
-  <div ref="gradesDistribution" data-aos="fade" class="graph"></div>
+    <div ref="helpfulnessDistribution" data-aos="fade" class="graph"></div>
 </template>
 
 <script>
   import Plotly from 'plotly.js/dist/plotly.min';
 
   export default {
-    name: 'grades-distribution',
+    name: 'helpfulness-distribution',
     mounted () {
       const data = [{
         x: ['🟊', '🟊🟊', '🟊🟊🟊', '🟊🟊🟊🟊', '🟊🟊🟊🟊🟊'],
-        y: [14853, 13663, 28275, 54804, 120185],
+        y: [0.406574707675, 0.487743960507, 0.575155633234, 0.718221101536, 0.711544766346],
+        error_y: {
+          type: 'data',
+          array: [0.131949, 0.128475, 0.128407, 0.120565, 0.119671],
+          visible: true
+        },
         type: 'bar'
       }];
 
-      Plotly.newPlot(this.$refs.gradesDistribution, data, {
-        title: 'Number of reviews per product\'s grade',
+      Plotly.newPlot(this.$refs.helpfulnessDistribution, data, {
+        title: 'Average helpful rate based on product\'s given grade',
         xaxis: {
           title: "Product's grade",
           tickfont: {
@@ -24,7 +29,7 @@
           fixedrange: true
         },
         yaxis: {
-          title: "Number of reviews",
+          title: "Helpful rate",
           fixedrange: true
         },
         margin: {
