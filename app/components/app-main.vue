@@ -105,6 +105,11 @@
     </section>
     <section>
       <h2>Finding correlations</h2>
+      <p>
+        We will use machine learning methods to find out which factors should naturally be taken into account to predict
+        the final rank. To do that, we use a neural network which will be trained on several features to predict the final
+        helpful rate.
+      </p>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
