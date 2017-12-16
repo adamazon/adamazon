@@ -6,18 +6,18 @@
         <small>More than 7 reviews each</small></p>
         <div class="reviewers" data-aos="fade-in">
           <span class="productive">
-            <template v-for="n in 773">&bull; </template>
+            <template v-for="n in 773">● </template>
           </span>
-          <template v-for="n in 5860 - 773">&bull; </template>
+          <template v-for="n in 5860 - 773">● </template>
         </div>
       </div>
       <div class="col-12 col-sm-6 others">
         <p class="description"><strong class="colored">18,443</strong> reviewers wrote the other <span class="colored">50%</span><br />
         <small>Less than 7 reviews each</small></p>
         <div class="reviewers" data-aos="fade-in">
-          <template v-for="n in 9222">&bull; </template>
+          <template v-for="n in 9222">● </template>
           <span class="unproductive">
-            <template v-for="n in 9221">&bull; </template>
+            <template v-for="n in 9221">● </template>
           </span>
         </div>
       </div>
@@ -58,10 +58,11 @@
   }
 
   .reviewers {
-    font-size: 0.1em;
-    line-height: 0.5em;
-    font-weight: bold;
+    font-size: 3.5px;
+    line-height: 1em;
     margin-bottom: 10px;
+    font-family: monospace;
+    color: black;
   }
 
   .productive {
