@@ -17,16 +17,15 @@
       Plotly.newPlot(this.$refs.reviewsDistribution, data, {
         title: 'Number of reviews per product',
         xaxis: {
-          title: 'Product ID',
-          fixedrange: true
-        },        
+          title: 'Product ID'
+        },
         yaxis: {
           title: 'Number of reviews',
           fixedrange: true
-        },  
+        },
         margin: {
           t: 30,
-          b:100
+          b: 40
         }
       }, {
         displayModeBar: false

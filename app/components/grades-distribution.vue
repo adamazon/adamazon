@@ -29,7 +29,7 @@
         },
         margin: {
           t: 30,
-          b:100
+          b: 40
         }
       }, {
         displayModeBar: false
