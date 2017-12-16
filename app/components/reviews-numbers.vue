@@ -4,8 +4,10 @@
       {{ longestReview }}
     </div>
 
-    <span class="numbers">75% of reviews have less than <span ref="quartile3">{{ quartile3 }}</span> characters</span><br />
-    <small class="numbers">The longest one is <span ref="max">{{ max }}</span> characters</small>
+    <span class="numbers">
+      <span class="colored">75%</span> of reviews have less than <span ref="quartile3" class="colored">{{ quartile3 }}</span> characters
+    </span><br />
+    <small class="numbers">The longest one is <span ref="max" class="colored">{{ max }}</span> characters</small>
   </div>
 </template>
 
@@ -51,11 +53,11 @@
   .reviews-numbers {
     position: relative;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 
     .text-background {
-      font-size: 0.8em;
-      color: #d1d1d1;
+      font-size: 0.95em;
+      color: #dadada;
       line-height: 1em;
       text-align: justify;
       position: absolute;

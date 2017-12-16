@@ -84,8 +84,27 @@
       <h2>Who is a reviewer?</h2>
       <p>
         Now that we know what a review is, let's find out what behavior defines reviewers of the <em>video games</em>
-        category.
+        category. Distribution of the numbers of reviews per reviewer is following a power law, meaning the major part
+        of the reviews is wrote by a minor part of the reviewers.
       </p>
+    </section>
+    <section>
+      <p>
+        The above visualisation represents each reviewer as a dot. The population is split into two groups, each group
+        produced 50% of the total number of reviews (<strong>115,890</strong> reviews each).
+      </p>
+      <reviewers-distribution></reviewers-distribution>
+      <p>
+        The median helpful rate (proportion of users who found the review helpful) is <strong>0.7</strong>; people tend
+        more to reward good reviews than bashing bad ones or the overall reviews quality is high.
+      </p>
+      <p>
+        Now that we know what a review and a reviewer are, we can start our investigation. We want to better understand
+        which factors are influencing the <em>helpfulness</em> of a review.
+      </p>
+    </section>
+    <section>
+      <h2>Finding correlations</h2>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
@@ -97,18 +116,19 @@
 </template>
 
 <script>
-  import c3 from 'c3'
   import GradesDistribution from './grades-distribution.vue';
   import ReviewsDistribution from './reviews-distribution.vue';
   import ReviewsNumbers from './reviews-numbers.vue';
+  import ReviewersDistribution from "./reviewers-distribution.vue";
 
   export default {
     name: 'app-main',
     components: {
+      ReviewersDistribution,
       GradesDistribution,
       ReviewsDistribution,
       ReviewsNumbers
-    }
+    },
   };
 </script>
 
