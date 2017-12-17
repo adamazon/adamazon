@@ -115,24 +115,25 @@
         To better understand data distribution and be more critical about the results found by the neural network, we will
         introduce features progressively. We first only use the product's grade given by the review.
         We have 5 possibilities between 1 and 5 <i class="fa fa-star"></i>. We ask the neural network if the review is
-        <em>useful</em> (more than 66% of positive evaluations), <em>not useful</em> (less than 33% of positive evaluations)
-        or <em>controversial</em>. After stabilization, we get the final results:
+        <em>useful</em> <i class="fa fa-check-circle"></i> (more than 66% of positive evaluations), <em>not useful</em>
+        <i class="fa fa-times-circle"></i> (less than 33% of positive evaluations)
+        or <em>controversial</em> <i class="fa fa-exclamation-triangle"></i> After stabilization, we get the final results:
       </p>
       <ul>
         <li>
-          <i class="fa fa-star" v-for="n in 5"></i>: the review is useful
+          <i class="fa fa-star" v-for="n in 5"></i>: the review is useful <i class="fa fa-check-circle"></i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 4"></i>: the review is useful
+          <i class="fa fa-star" v-for="n in 4"></i>: the review is useful <i class="fa fa-check-circle"></i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 3"></i>: the review is useful
+          <i class="fa fa-star" v-for="n in 3"></i>: the review is useful <i class="fa fa-check-circle"></i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 2"></i>: the review is polemical
+          <i class="fa fa-star" v-for="n in 2"></i>: the review is polemical <i class="fa fa-exclamation-triangle"></i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 1"></i>: the review is not useful
+          <i class="fa fa-star" v-for="n in 1"></i>: the review is not useful <i class="fa fa-times-circle"></i>
         </li>
       </ul>
       <p>
@@ -141,6 +142,14 @@
         will be considered <em>useful</em>. In practice, this network does not help a lot, but it reveal one thing:
       </p>
       <helpfulness-distribution></helpfulness-distribution>
+    </section>
+    <section>
+      <h2>Are your reviews useful?</h2>
+      <p>
+        Now that we have investigated which factors are influencing the <em>helpfulness</em> of a review, you can try your
+        own! Use the following input to write your review, and you will know...
+      </p>
+      <reviewer></reviewer>
     </section>
     <section class="citations">
       <span id="ups-and-down">[1]</span>
@@ -157,10 +166,12 @@
   import ReviewsNumbers from './reviews-numbers.vue';
   import ReviewersDistribution from './reviewers-distribution.vue';
   import HelpfulnessDistribution from './helpfulness-distribution.vue';
+  import Reviewer from './reviewer.vue';
 
   export default {
     name: 'app-main',
     components: {
+      Reviewer,
       HelpfulnessDistribution,
       ReviewersDistribution,
       GradesDistribution,
