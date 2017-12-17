@@ -41,9 +41,11 @@
 
 <style scoped lang="scss" ref="stylesheet/scss">
   textarea {
-    border: 1px solid #343434;
+    border: none;
     width: 100%;
     height: 200px;
-    padding: 2px;
+    padding: 5px 10px;
+    background: #f1f1f1;
+    border-radius: 3px;
   }
 </style>

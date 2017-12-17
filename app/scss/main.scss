@@ -109,6 +109,18 @@ section {
   }
 }
 
+.success {
+  color: #44b41c;
+}
+
+.warning {
+  color: #ff6a26;
+}
+
+.danger {
+  color: #ec2c31;
+}
+
 .colored {
   color: $amazon-color;
 }

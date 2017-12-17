@@ -1,34 +1,34 @@
 <template>
   <div class="row graph">
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="100">
         <i class="fa fa-check-circle"></i>
         <i class="fa fa-star-half-full"></i> Review's grade
         <div class="details">
-          The review's grade<br />(between 1 and 5 <i class="fa fa-star"></i>)
+          The review's grade between 1 and 5 <i class="fa fa-star"></i>
         </div>
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
-        <i class="fa fa-times-circle"></i>
+      <div class="feature" data-aos="zoom-in" data-aos-delay="150">
+        <i class="fa fa-check-circle"></i>
         <i class="fa fa-th-list"></i> Summary length
         <div class="details">
-          The review's summary length<br />(characters count)
+          The review's summary length
         </div>
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="200">
         <i class="fa fa-check-circle"></i>
         <i class="fa fa-list"></i> Review's length
         <div class="details">
-          The review's length<br />(characters count excluding the summary)
+          The review's length
         </div>
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="250">
         <i class="fa fa-times-circle"></i>
         <i class="fa fa-exclamation-circle"></i> Exclamation points
         <div class="details">
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="300">
         <i class="fa fa-times-circle"></i>
         <i class="fa fa-question-circle"></i> Question marks
         <div class="details">
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="350">
         <i class="fa fa-times-circle"></i>
         <i class="fa fa-ellipsis-h"></i> Ellipsis
         <div class="details">
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="400">
         <i class="fa fa-times-circle"></i>
         <i class="fa fa-text-height"></i> Uppercase letters
         <div class="details">
@@ -64,14 +64,23 @@
       </div>
     </div>
     <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="450">
         <i class="fa fa-check-circle"></i>
         <i class="fa fa-language"></i> Text analysis
         <div class="details">
           Text vectorization (TFIDF, Word2Vect)
         </div>
-       </div>
       </div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3">
+      <div class="feature" data-aos="zoom-in" data-aos-delay="500">
+        <i class="fa fa-times-circle"></i>
+        <i class="fa fa-dollar"></i> Product's price
+        <div class="details">
+          The product's price in dollars
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -90,7 +99,7 @@
     padding: 10px 5px;
     text-align: center;
     border-radius: 3px;
-    margin: 3px 0;
+    margin: 3px 0 10px;
     cursor: default;
     position: relative;
 
@@ -110,15 +119,10 @@
     }
 
     .details {
-      max-height: 0;
-      transition: max-height .5s;
       overflow: hidden;
-      font-size: 0.8em;
+      font-size: 0.7em;
       font-style: italic;
-    }
-
-    &:hover .details {
-      max-height: 300px;
+      margin-top: 5px;
     }
   }
 </style>

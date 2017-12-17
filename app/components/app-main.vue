@@ -14,29 +14,32 @@
         this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and
         <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">detailed analysis</a>.
       </p>
-      <img src="../images/amazon.svg" data-aos="fade" />
-    </section>
-    <section>
-      <h2>Summary</h2>
-      <ul>
-        <li>
-          <a href="#what-is-review">What is a review?</a>
-        </li>
-        <li>
-          <a href="#who-is-reviewer">Who is a reviewer?</a>
-        </li>
-        <li>
-          <a href="#finding-correlations">Finding correlations</a>
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4">
           <ul>
             <li>
-              <a href="#dumb-network">The dump network</a>
+              <a href="#what-is-review">What is a review?</a>
             </li>
             <li>
-              <a href="#digging-features">Digging for features</a>
+              <a href="#who-is-reviewer">Who is a reviewer?</a>
+            </li>
+            <li>
+              <a href="#finding-correlations">Finding correlations</a>
+              <ul>
+                <li>
+                  <a href="#dumb-network">The dumb network</a>
+                </li>
+                <li>
+                  <a href="#digging-features">Digging for features</a>
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+        <div class="col-12 col-md-8">
+          <img src="../images/amazon.svg" data-aos="fade" />
+        </div>
+      </div>
     </section>
     <section>
       <h2 id="what-is-review">What is a review?</h2>
@@ -137,33 +140,37 @@
         To better understand data distribution and be more critical about the results found by the neural network, we will
         introduce features progressively. We first only use the product's grade given by the review.
         We have 5 possibilities between 1 and 5 <i class="fa fa-star"></i>. We ask the neural network if the review is
-        <i class="fa fa-check-circle">&nbsp;useful</i> (more than 66% of positive evaluations),
-        <i class="fa fa-times-circle">&nbsp;not useful</i> (less than 33% of positive evaluations)
-        or <i class="fa fa-exclamation-triangle">&nbsp;controversial</i> After stabilization, we get the final results:
+        <span class="success"><i class="fa fa-check-circle"></i> useful</span> (more than 66% of positive evaluations),
+        <span class="danger"><i class="fa fa-times-circle"></i> not useful</span> (less than 33% of positive evaluations)
+        or <span class="warning"><i class="fa fa-exclamation-triangle"></i> controversial</span>. After stabilization, we get the final results:
       </p>
       <ul>
         <li>
-          <i class="fa fa-star" v-for="n in 5"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
+          <i class="fa fa-star" v-for="n in 5"></i>: the review is
+          <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 4"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
+          <i class="fa fa-star" v-for="n in 4"></i>: the review is
+          <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 3"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
+          <i class="fa fa-star" v-for="n in 3"></i>: the review is
+          <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 2"></i>: the review is <i class="fa fa-exclamation-triangle">&nbsp;controversial</i>
+          <i class="fa fa-star" v-for="n in 2"></i>: the review is
+          <span class="warning"><i class="fa fa-exclamation-triangle"></i> controversial</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 1"></i>: the review is <i class="fa fa-times-circle">&nbsp;not useful</i>
+          <i class="fa fa-star" v-for="n in 1"></i>: the review is
+          <span class="danger"><i class="fa fa-times-circle"></i> not useful</span>
         </li>
       </ul>
       <p>
         This means that any review attributing 1 <i class="fa fa-star"></i> to a product will be considered as <em>not useful</em>,
         and any review attributing 2 <i class="fa fa-star"></i> will be considered as <em>polemical</em>. Other reviews
-        will be considered <em>useful</em>. The final accuracy of our network is 0.58, meaning it is able to find the
-        correct category for more than half of the reviews (a random classification would have given around 33% of good results).
-        In practice, this network does not help a lot, but it reveals one thing: the repartition of helpful rate based on the review's grade.
+        will be considered <em>useful</em>. The final f1 score of our network is 0.37, meaning it is behaving as a
+        random classifier. This network does not help a lot, but it reveals one thing: the repartition of helpful rate based on the review's grade.
       </p>
       <helpfulness-distribution></helpfulness-distribution>
       <p>
