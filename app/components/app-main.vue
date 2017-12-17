@@ -17,9 +17,31 @@
       <img src="../images/amazon.svg" data-aos="fade" />
     </section>
     <section>
-      <h2>What is a review?</h2>
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          <a href="#what-is-review">What is a review?</a>
+        </li>
+        <li>
+          <a href="#who-is-reviewer">Who is a reviewer?</a>
+        </li>
+        <li>
+          <a href="#finding-correlations">Finding correlations</a>
+          <ul>
+            <li>
+              <a href="#dumb-network">The dump network</a>
+            </li>
+            <li>
+              <a href="#digging-features">Digging for features</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2 id="what-is-review">What is a review?</h2>
       <p>
-        We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down">[1]</a></sup>
+        We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down" id="ups-and-down-cite">[1]</a></sup>
         containing Amazon product reviews (142.8 million) and metadata. We will more precisely focus on the Video Games section
         to try to find correlations and insights for understanding how reviews are written. The Video Games section contains
         about 1,300,000 reviews (after de-duplication) and will be useful to reduce bias in our analysis, as we could expect
@@ -81,7 +103,7 @@
       <reviews-numbers></reviews-numbers>
     </section>
     <section>
-      <h2>Who is a reviewer?</h2>
+      <h2 id="who-is-reviewer">Who is a reviewer?</h2>
       <p>
         Now that we know what a review is, let's find out what behavior defines reviewers of the <em>video games</em>
         category. Distribution of the numbers of reviews per reviewer is following a power law, meaning the major part
@@ -105,43 +127,66 @@
       </p>
     </section>
     <section>
-      <h2>Finding correlations</h2>
+      <h2 id="finding-correlations">Finding correlations</h2>
       <p>
         We will use machine learning methods to find out which factors should naturally be taken into account to predict
         the final <em>helpfulness</em> of a review.
       </p>
-      <h3>The dumb network</h3>
+      <h3 id="dumb-network">The dumb network</h3>
       <p>
         To better understand data distribution and be more critical about the results found by the neural network, we will
         introduce features progressively. We first only use the product's grade given by the review.
         We have 5 possibilities between 1 and 5 <i class="fa fa-star"></i>. We ask the neural network if the review is
-        <em>useful</em> <i class="fa fa-check-circle"></i> (more than 66% of positive evaluations), <em>not useful</em>
-        <i class="fa fa-times-circle"></i> (less than 33% of positive evaluations)
-        or <em>controversial</em> <i class="fa fa-exclamation-triangle"></i> After stabilization, we get the final results:
+        <i class="fa fa-check-circle">&nbsp;useful</i> (more than 66% of positive evaluations),
+        <i class="fa fa-times-circle">&nbsp;not useful</i> (less than 33% of positive evaluations)
+        or <i class="fa fa-exclamation-triangle">&nbsp;controversial</i> After stabilization, we get the final results:
       </p>
       <ul>
         <li>
-          <i class="fa fa-star" v-for="n in 5"></i>: the review is useful <i class="fa fa-check-circle"></i>
+          <i class="fa fa-star" v-for="n in 5"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 4"></i>: the review is useful <i class="fa fa-check-circle"></i>
+          <i class="fa fa-star" v-for="n in 4"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 3"></i>: the review is useful <i class="fa fa-check-circle"></i>
+          <i class="fa fa-star" v-for="n in 3"></i>: the review is <i class="fa fa-check-circle">&nbsp;useful</i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 2"></i>: the review is polemical <i class="fa fa-exclamation-triangle"></i>
+          <i class="fa fa-star" v-for="n in 2"></i>: the review is <i class="fa fa-exclamation-triangle">&nbsp;controversial</i>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 1"></i>: the review is not useful <i class="fa fa-times-circle"></i>
+          <i class="fa fa-star" v-for="n in 1"></i>: the review is <i class="fa fa-times-circle">&nbsp;not useful</i>
         </li>
       </ul>
       <p>
         This means that any review attributing 1 <i class="fa fa-star"></i> to a product will be considered as <em>not useful</em>,
         and any review attributing 2 <i class="fa fa-star"></i> will be considered as <em>polemical</em>. Other reviews
-        will be considered <em>useful</em>. In practice, this network does not help a lot, but it reveal one thing:
+        will be considered <em>useful</em>. The final accuracy of our network is 0.58, meaning it is able to find the
+        correct category for more than half of the reviews (a random classification would have given around 33% of good results).
+        In practice, this network does not help a lot, but it reveals one thing: the repartition of helpful rate based on the review's grade.
       </p>
       <helpfulness-distribution></helpfulness-distribution>
+      <p>
+        Amazon reviews which are giving a lower grade are more likely to get lower evaluations by other customers. This may be due
+        to overstated reviews and product bashing. When trying to take into account the review length or the review summary
+        length, we get approximately the same accuracy (around 0.54). We need to use better machine learning methods
+        and select more precisely which parts of the review should be taken into account.
+      </p>
+      <h3 id="digging-features">Digging for features</h3>
+      <p>
+        We will now start digging for interesting features which could be used to predict the helpful rate of the review.
+        The explored features are the following (<i class="fa fa-check-circle"></i> means the feature was used by
+        the final classifier, <i class="fa fa-times-circle"></i> means it was rejected):
+      </p>
+      <features></features>
+      <p>
+        As we can see here, only the review's grade, length and contents have a real impact on the final helpfulness. Using
+        naive counting of punctuation and text case does not brings interesting insights. This means we will need to use
+        the final contents as a vector of features to produce a good classification of the results.
+      </p>
+    </section>
+    <section>
+      <h2>Text analysis</h2>
     </section>
     <section>
       <h2>Are your reviews useful?</h2>
@@ -151,8 +196,15 @@
       </p>
       <reviewer></reviewer>
     </section>
+    <section>
+      <p>
+        Thanks for reading this story! If you want to learn more about how the presented results were found, feel free
+        to read the <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">detailed analysis</a>
+        of the <em>video games</em> Amazon reviews.
+      </p>
+    </section>
     <section class="citations">
-      <span id="ups-and-down">[1]</span>
+      <a id="ups-and-down" href="#ups-and-down-cite">[1]</a>
       <strong>Ups and downs: Modeling the visual evolution of fashion trends with one-class collaborative filtering</strong><br />
       R. He, J. McAuley<br />
       <em>WWW</em>, 2016
@@ -167,10 +219,12 @@
   import ReviewersDistribution from './reviewers-distribution.vue';
   import HelpfulnessDistribution from './helpfulness-distribution.vue';
   import Reviewer from './reviewer.vue';
+  import Features from './features.vue';
 
   export default {
     name: 'app-main',
     components: {
+      Features,
       Reviewer,
       HelpfulnessDistribution,
       ReviewersDistribution,
