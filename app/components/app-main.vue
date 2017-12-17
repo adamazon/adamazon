@@ -187,13 +187,49 @@
       </p>
       <features></features>
       <p>
-        As we can see here, only the review's grade, length and contents have a real impact on the final helpfulness. Using
-        naive counting of punctuation and text case does not brings interesting insights. This means we will need to use
-        the final contents as a vector of features to produce a good classification of the results.
+        As we can see here, only the review's grade, length and contents have a real impact on the final helpfulness. This
+        is confirmed when looking at features importance:
+      </p>
+      <features-importance></features-importance>
+      <p>
+        This features importance is generated after a training with all video games reviews. To improve our predictions,
+        we will need to use the final contents as a vector of features to produce a good classification of the results.
       </p>
     </section>
     <section>
       <h2>Text analysis</h2>
+      <p>
+        We now start a text analysis to use review's content to build our new classifier. To do so, we use <em>Word2Vec</em>
+        embeddings to use words as a new feature. The following
+        plot shows how the word space is built. Words with close meanings are nearby each other.
+      </p>
+      <words-plot></words-plot>
+      <p>
+        We can focus on the group framed in orange. We get the following words (you can zoom by selecting a group of words
+        by drawing a frame around them):
+      </p>
+      <words-specs-plot></words-specs-plot>
+      <p>
+        All these words belong to a same category and usage (here computer software and hardware specifications). We can
+        use the whole words generated data as a new feature to predict the helpful rate of each review.
+      </p>
+      <p>
+        You can now discover the results for the predictability of each review. We use the f1 score, which allow to evaluate
+        if the model is good or not and is resistant to imbalanced data.
+      </p>
+      <bench></bench>
+      <p>
+        We have a good average of prediction. Using a classifier trained on the whole data, we are able to predict the helpful
+        rate of PC Games reviews with a precision of 76%. We can understand which factors behind the review (features) were mainly used
+        by the classifier:
+      </p>
+      <ol>
+        <li>Its textual contents</li>
+        <li>Its chosen grade</li>
+        <li>It's content length</li>
+        <li>The product's price</li>
+        <li>It's summary length</li>
+      </ol>
     </section>
     <section>
       <h2>Are your reviews useful?</h2>
@@ -227,10 +263,18 @@
   import HelpfulnessDistribution from './helpfulness-distribution.vue';
   import Reviewer from './reviewer.vue';
   import Features from './features.vue';
+  import WordsPlot from './words-plot.vue';
+  import WordsSpecsPlot from './words-specs-plot.vue';
+  import Bench from './bench.vue';
+  import FeaturesImportance from './features-importance.vue';
 
   export default {
     name: 'app-main',
     components: {
+      FeaturesImportance,
+      Bench,
+      WordsSpecsPlot,
+      WordsPlot,
       Features,
       Reviewer,
       HelpfulnessDistribution,

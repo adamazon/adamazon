@@ -129,6 +129,19 @@ section {
   text-align: center;
 }
 
+.badge {
+  display: inline;
+  padding: .15em .5em .25em;
+  font-size: .85em;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #404040;
+}
+
 @import 'chart';
 @import 'review';
 @import 'table';

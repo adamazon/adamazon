@@ -66,7 +66,7 @@
     <div class="col-6 col-sm-4 col-md-3">
       <div class="feature" data-aos="zoom-in" data-aos-delay="450">
         <i class="fa fa-check-circle"></i>
-        <i class="fa fa-language"></i> Text analysis
+        <i class="fa fa-language"></i> Review's text content
         <div class="details">
           Text vectorization (TFIDF, Word2Vect)
         </div>
