@@ -34,6 +34,12 @@
                 </li>
               </ul>
             </li>
+            <li>
+              <a href="#text-analysis">Text analysis</a>
+            </li>
+            <li>
+              <a href="#your-reviews">Are your reviews useful?</a>
+            </li>
           </ul>
         </div>
         <div class="col-12 col-md-8">
@@ -187,7 +193,9 @@
       </p>
       <features></features>
       <p>
-        As we can see here, only the review's grade, length and contents have a real impact on the final helpfulness. This
+        Most of the features are properties of the review (derived form its contents), but some products features are also
+        used such as its price.
+        As we can see here, mostly the review's grade, length and contents have a real impact on the final helpfulness. This
         is confirmed when looking at features importance:
       </p>
       <features-importance></features-importance>
@@ -197,7 +205,7 @@
       </p>
     </section>
     <section>
-      <h2>Text analysis</h2>
+      <h2 id="text-analysis">Text analysis</h2>
       <p>
         We now start a text analysis to use review's content to build our new classifier. To do so, we use <em>Word2Vec</em>
         embeddings to use words as a new feature. The following
@@ -224,15 +232,23 @@
         by the classifier:
       </p>
       <ol>
-        <li>Its textual contents</li>
-        <li>Its chosen grade</li>
-        <li>It's content length</li>
-        <li>The product's price</li>
-        <li>It's summary length</li>
+        <li><strong>Its textual contents:</strong> depending on the words used in the review, it is possible to determine if it is useful or not.</li>
+        <li><strong>Its chosen grade:</strong> if the grade is too extreme (especially when too low), it can reduce the helpful rate.</li>
+        <li><strong>It's content length:</strong> long reviews are most likely to be useful for other customers, as they bring many details.</li>
+        <li>
+            <strong>The product's price:</strong> the product price can allow, in the case of video games, to determine if the evaluated product
+            is a game console, a video game or an accessory. Used together with the textual contents, it can help discriminate
+            reviews that are not useful.
+        </li>
+        <li>
+            <strong>It's summary length:</strong> the summary length is correlated with the content length, and can be used the same way
+            to discriminate not helpful reviews.
+        </li>
       </ol>
+      <p>NB: the above explanations are resulting from both data analysis and interpretations of the authors.</p>
     </section>
     <section>
-      <h2>Are your reviews useful?</h2>
+      <h2 id="your-reviews">Are your reviews useful?</h2>
       <p>
         Now that we have investigated which factors are influencing the <em>helpfulness</em> of a review, you can try your
         own! Use the following input to write your review, and you will know...

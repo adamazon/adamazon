@@ -11,7 +11,7 @@
     </div>
     <div class="col-6 col-sm-4 col-md-3">
       <div class="feature" data-aos="zoom-in" data-aos-delay="150">
-        <i class="fa fa-check-circle"></i>
+        <i class="fa fa-times-circle"></i>
         <i class="fa fa-th-list"></i> Summary length
         <div class="details">
           The review's summary length
@@ -56,7 +56,7 @@
     </div>
     <div class="col-6 col-sm-4 col-md-3">
       <div class="feature" data-aos="zoom-in" data-aos-delay="400">
-        <i class="fa fa-times-circle"></i>
+        <i class="fa fa-check-circle"></i>
         <i class="fa fa-text-height"></i> Uppercase letters
         <div class="details">
           The numbers of uppercase letters
@@ -66,15 +66,6 @@
     <div class="col-6 col-sm-4 col-md-3">
       <div class="feature" data-aos="zoom-in" data-aos-delay="450">
         <i class="fa fa-check-circle"></i>
-        <i class="fa fa-language"></i> Review's text content
-        <div class="details">
-          Text vectorization (TFIDF, Word2Vect)
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3">
-      <div class="feature" data-aos="zoom-in" data-aos-delay="500">
-        <i class="fa fa-times-circle"></i>
         <i class="fa fa-dollar"></i> Product's price
         <div class="details">
           The product's price in dollars
