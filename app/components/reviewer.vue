@@ -1,39 +1,41 @@
 <template>
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <p>You're not inspired? <a href="#" @click.prevent="loadRandom()">Load a random review!</a></p>
-          <strong>We need one information about the product:</strong><br />
-          <label for="price">Price of the product in $</label>
-          <input id="price" type="number" placeholder="19.99" v-model="price" @input="evaluateReview()" />
-        </div>
-        <div class="col-12">
-          <strong>Your review:</strong><br />
-          <label>Which grade do you want to give?</label>
-          <a href="#" class="fa fa-star" v-for="n in grade" @click.prevent="updateGrade(n)"></a><a href="#" class="fa fa-star-o" v-for="n in 5 - grade" @click.prevent="updateGrade(grade + n)"></a>
+  <div class="graph">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <p>You're not inspired? <a href="#" @click.prevent="loadRandom()">Load a random review!</a></p>
+            <strong>We need one information about the product:</strong><br />
+            <label for="price">Price of the product in $</label>
+            <input id="price" type="number" placeholder="19.99" v-model="price" @input="evaluateReview()" />
+          </div>
+          <div class="col-12">
+            <strong>Your review:</strong><br />
+            <label>Which grade do you want to give?</label>
+            <a href="#" class="fa fa-star" v-for="n in grade" @click.prevent="updateGrade(n)"></a><a href="#" class="fa fa-star-o" v-for="n in 5 - grade" @click.prevent="updateGrade(grade + n)"></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-sm-8">
-      <form action="#">
-        <input type="text" title="Title for your review" placeholder="Title for your review..." v-model="summary" @input="evaluateReview()" />
-        <textarea title="Enter your review here" @input="evaluateReview()" v-model="review" placeholder="Enter your review here..." maxlength="2000"></textarea>
-      </form>
-    </div>
-    <div class="col-sm-4">
-      <div class="result">
-        <template v-if="loading"><i class="fa fa-spinner fa-spin"></i><br />Evaluating your review...</template>
-        <template v-else-if="result === true">
-          <i class="fa fa-trophy"></i><br />Kudos! Your review <strong>is</strong> helpful!
-        </template>
-        <template v-else-if="result === false">
-          <i class="fa fa-trash"></i><br />Your review is <strong>not</strong> helpful...
-        </template>
-        <template v-else>
-          <i class="fa fa-star-o"></i><br />
-          Waiting for your review...
-        </template>
+      <div class="col-12 col-sm-8">
+        <form action="#">
+          <input type="text" title="Title for your review" placeholder="Title for your review..." v-model="summary" @input="evaluateReview()" />
+          <textarea title="Enter your review here" @input="evaluateReview()" v-model="review" placeholder="Enter your review here..." maxlength="2000"></textarea>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <div class="result">
+          <template v-if="loading"><i class="fa fa-spinner fa-spin"></i><br />Evaluating your review...</template>
+          <template v-else-if="result === true">
+            <i class="fa fa-trophy"></i><br />Kudos! Your review <strong>is</strong> helpful!
+          </template>
+          <template v-else-if="result === false">
+            <i class="fa fa-trash"></i><br />Your review is <strong>not</strong> helpful...
+          </template>
+          <template v-else>
+            <i class="fa fa-ellipsis-h"></i><br />
+            Waiting for<br />your review...
+          </template>
+        </div>
       </div>
     </div>
   </div>
