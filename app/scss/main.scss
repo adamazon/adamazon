@@ -142,6 +142,15 @@ section {
   background-color: #404040;
 }
 
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+::-moz-placeholder {
+  color: #bfbfbf;
+  opacity: 1;
+}
+
 @import 'chart';
 @import 'review';
 @import 'table';
