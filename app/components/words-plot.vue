@@ -23,11 +23,13 @@
         title: 'Word2Vec projection',
         xaxis: {
           title: "X",
-          fixedrange: true
+          fixedrange: true,
+          tickformat : ".2f"
         },
         yaxis: {
           title: "Y",
-          fixedrange: true
+          fixedrange: true,
+          tickformat : ".2f"
         },
         margin: {
           t: 30,

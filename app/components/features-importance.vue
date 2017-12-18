@@ -10,7 +10,7 @@
     mounted () {
       const data = [{
         x: ["Summary text", "Review text", "Review length", "Review grade", 'Exclamation points', 'Question marks', 'Ellipsis', 'Uppercase letters', 'Summary length', 'Price'],
-        y: [0.0916328127077, 0.622917328527, 0.107914581506, 0.111529999997, 0.00288719001996, 0.0, 0.0, 0.0346898563207, 0.00128150933387, 0.0271467215876],
+        y: [0.091, 0.623, 0.108, 0.112, 0.003, 0.0, 0.0, 0.035, 0.001, 0.027],
         type: 'bar'
       }];
 
