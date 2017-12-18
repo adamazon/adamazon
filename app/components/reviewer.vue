@@ -71,7 +71,6 @@
           return fetch('https://compil.io/lazy', { method: 'POST', body: data })
             .then(res => res.text())
             .then(res => {
-              console.log(res);
               this.result = res === 'helpful';
               this.loading = false;
             })
