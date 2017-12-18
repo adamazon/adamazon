@@ -17,8 +17,8 @@
     </div>
     <div class="col-12 col-sm-8">
       <form action="#">
-        <input type="text" title="Title for your review" placeholder="Title for your review..." v-model="summary" />
-        <textarea title="Enter your review here" @input="evaluateReview()" v-model="review" placeholder="Enter your review here..."></textarea>
+        <input type="text" title="Title for your review" placeholder="Title for your review..." v-model="summary" @input="evaluateReview()" />
+        <textarea title="Enter your review here" @input="evaluateReview()" v-model="review" placeholder="Enter your review here..." maxlength="2000"></textarea>
       </form>
     </div>
     <div class="col-sm-4">
@@ -78,6 +78,7 @@
       },
       updateGrade (i) {
         this.grade = i;
+        this.evaluateReview();
       },
       loadRandom() {
         const sampleReviews = [
