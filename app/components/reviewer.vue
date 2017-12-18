@@ -24,11 +24,15 @@
     <div class="col-sm-4">
       <div class="result">
         <template v-if="loading"><i class="fa fa-spinner fa-spin"></i><br />Evaluating your review...</template>
-        <template v-if="result === true">
+        <template v-else-if="result === true">
           <i class="fa fa-trophy"></i><br />Kudos! Your review <strong>is</strong> helpful!
         </template>
-        <template v-if="result === false">
+        <template v-else-if="result === false">
           <i class="fa fa-trash"></i><br />Your review is <strong>not</strong> helpful...
+        </template>
+        <template v-else>
+          <i class="fa fa-star-o"></i><br />
+          Waiting for your review...
         </template>
       </div>
     </div>
