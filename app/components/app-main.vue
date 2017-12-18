@@ -156,19 +156,19 @@
           <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 4"></i>: the review is
+          <i class="fa fa-star" v-for="n in 4"></i><i class="fa fa-star-o"></i>: the review is
           <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 3"></i>: the review is
+          <i class="fa fa-star" v-for="n in 3"></i><i class="fa fa-star-o" v-for="n in 2"></i>: the review is
           <span class="success"><i class="fa fa-check-circle"></i> useful</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 2"></i>: the review is
+          <i class="fa fa-star" v-for="n in 2"></i><i class="fa fa-star-o" v-for="n in 3"></i>: the review is
           <span class="warning"><i class="fa fa-exclamation-triangle"></i> controversial</span>
         </li>
         <li>
-          <i class="fa fa-star" v-for="n in 1"></i>: the review is
+          <i class="fa fa-star" v-for="n in 1"></i><i class="fa fa-star-o" v-for="n in 4"></i>: the review is
           <span class="danger"><i class="fa fa-times-circle"></i> not useful</span>
         </li>
       </ul>
@@ -228,23 +228,35 @@
       <bench></bench>
       <p>
         We have a good average of prediction. Using a classifier trained on the whole data, we are able to predict the helpful
-        rate of PC Games reviews with a precision of 76%. We can understand which factors behind the review (features) were mainly used
+        rate of PC Games reviews with a precision of 72%. We can understand which factors behind the review (features) were mainly used
         by the classifier:
       </p>
-      <ol>
-        <li><strong>Its textual contents:</strong> depending on the words used in the review, it is possible to determine if it is useful or not.</li>
-        <li><strong>Its chosen grade:</strong> if the grade is too extreme (especially when too low), it can reduce the helpful rate.</li>
-        <li><strong>It's content length:</strong> long reviews are most likely to be useful for other customers, as they bring many details.</li>
-        <li>
-            <strong>The product's price:</strong> the product price can allow, in the case of video games, to determine if the evaluated product
-            is a game console, a video game or an accessory. Used together with the textual contents, it can help discriminate
-            reviews that are not useful.
-        </li>
-        <li>
-            <strong>It's summary length:</strong> the summary length is correlated with the content length, and can be used the same way
+      <table>
+        <tr>
+          <th scope="row" width="175">Its textual contents.</th>
+          <td>Depending on the words used in the review, it is possible to determine if it is useful or not.</td>
+        </tr>
+        <tr>
+          <th scope="row">Its chosen grade.</th>
+          <td>If the grade is too extreme (especially when too low), it can reduce the helpful rate.</td>
+        <tr>
+          <th scope="row">It's content length.</th>
+          <td>Long reviews are most likely to be useful for other customers, as they bring many details.</td>
+        <tr>
+          <th scope="row">The product's price.</th>
+          <td scope="row">
+            The product price can allow, in the case of video games, to determine if the evaluated product
+            is a game console, a video game or an accessory. Used together with the textual contents, it can help
+            discriminate reviews that are not useful.
+          </td>
+        <tr>
+          <th scope="row">It's summary length.</th>
+          <td>
+            The summary length is correlated with the content length, and can be used the same way
             to discriminate not helpful reviews.
-        </li>
-      </ol>
+          </td>
+        </tr>
+      </table>
       <p>NB: the above explanations are resulting from both data analysis and interpretations of the authors.</p>
     </section>
     <section>

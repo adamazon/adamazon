@@ -7,15 +7,8 @@
           <input id="price" type="number" placeholder="19.99" v-model="price" @input="evaluateReview()" />
         </div>
         <div class="col-6">
-          <label for="grade">Which grade do you want to give?</label>
-          <select id="grade" v-model="grade" @input="evaluateReview()">
-            <option value="" disabled></option>
-            <option value="5">🟊🟊🟊🟊🟊</option>
-            <option value="4">🟊🟊🟊🟊</option>
-            <option value="3">🟊🟊🟊</option>
-            <option value="2">🟊🟊</option>
-            <option value="1">🟊</option>
-          </select>
+          <label>Which grade do you want to give?</label>
+          <a href="#" class="fa fa-star" v-for="n in grade" @click.prevent="updateGrade(n)"></a><a href="#" class="fa fa-star-o" v-for="n in 5 - grade" @click.prevent="updateGrade(grade + n)"></a>
         </div>
       </div>
 
@@ -35,7 +28,7 @@
     data () {
       return {
         review: '',
-        grade: '',
+        grade: 1,
         price: '',
         timeout: 0,
         loading: false
@@ -43,7 +36,7 @@
     },
     methods: {
       evaluateReview () {
-        if (this.review === '' || this.grade === '' || this.price === '') {
+        if (this.review === '' || this.price === '') {
           this.loading = false;
 
           return;
@@ -54,6 +47,9 @@
           this.loading = true;
           console.log(this.review)
         }, 500);
+      },
+      updateGrade (i) {
+        this.grade = i;
       }
     }
   }
@@ -62,11 +58,17 @@
 <style scoped lang="scss" ref="stylesheet/scss">
   @import '../scss/vars';
 
+  label {
+    vertical-align: middle;
+    margin: 10px 0;
+  }
+
   textarea, input, select {
     border: none;
     padding: 5px 10px;
     background: #f1f1f1;
     border-radius: 3px;
+    vertical-align: middle;
   }
 
   textarea {
@@ -76,5 +78,9 @@
 
   select, option {
     color: $amazon-color;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 </style>

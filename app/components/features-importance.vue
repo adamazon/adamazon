@@ -9,8 +9,8 @@
     name: 'features-importance',
     mounted () {
       const data = [{
-        x: ["Review's length", "Review's grade", 'Exclamation points', 'Question marks', 'Ellipsis', 'Uppercase letters', 'Summary length', 'Price'],
-        y: [0.107914581506, 0.111529999997, 0.00288719001996, 0.0, 0.0, 0.0346898563207, 0.00128150933387, 0.0271467215876],
+        x: ["Summary text", "Review text", "Review length", "Review grade", 'Exclamation points', 'Question marks', 'Ellipsis', 'Uppercase letters', 'Summary length', 'Price'],
+        y: [0.0916328127077, 0.622917328527, 0.107914581506, 0.111529999997, 0.00288719001996, 0.0, 0.0, 0.0346898563207, 0.00128150933387, 0.0271467215876],
         type: 'bar'
       }];
 
@@ -26,7 +26,7 @@
         },
         margin: {
           t: 30,
-          b: 40
+          b: 90
         }
       }, {
         displayModeBar: false

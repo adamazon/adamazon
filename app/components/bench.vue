@@ -3,7 +3,7 @@
     <div class="col-6 col-sm-4">
       <div class="bench" data-aos="fade-in" data-aos-delay="100">
         <div class="score">
-          76<small>%</small><br />
+          72<small>%</small><br />
           <span class="description">f1 score</span>
         </div>
         <div class="details">
@@ -18,7 +18,7 @@
     <div class="col-6 col-sm-4">
       <div class="bench" data-aos="fade-in" data-aos-delay="150">
         <div class="score">
-          69<small>%</small><br />
+          62<small>%</small><br />
           <span class="description">f1 score</span>
         </div>
         <div class="details">
@@ -34,7 +34,7 @@
     <div class="col-6 col-sm-4">
       <div class="bench" data-aos="fade-in" data-aos-delay="200">
         <div class="score">
-          92<small>%</small><br />
+          90<small>%</small><br />
           <span class="description">f1 score</span>
         </div>
         <div class="details">
