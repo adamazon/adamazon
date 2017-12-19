@@ -7,15 +7,16 @@
     <hr />
     <section class="intro">
       <p>
-        Reviews on Amazon are done by thousands of people to share their advices and analysis concerning products
+        Reviews on Amazon are done by thousands of people to share their advices and analysis regarding products
         in dozens of categories and subcategories. These reviews can influence positively or negatively the potential
         buyers to make their purchase a reality or buy an other product. We will here try to focus on which factors
-        can determine whether a review is <em>good</em> and which product's features can influence reviews. See
-        this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and
+        can determine whether a review is <em>good</em> and which product's features can influence reviews. Check out also
+        this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and our
         <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">detailed analysis</a>.
       </p>
       <div class="row align-items-center">
         <div class="col-12 col-md-4">
+          <h2>Summary</h2>
           <ul>
             <li>
               <a href="#what-is-review">What is a review?</a>
@@ -148,7 +149,7 @@
         We have 5 possibilities between 1 and 5 <i class="fa fa-star"></i>. We ask the neural network if the review is
         <span class="success"><i class="fa fa-check-circle"></i> useful</span> (more than 66% of positive evaluations),
         <span class="danger"><i class="fa fa-times-circle"></i> not useful</span> (less than 33% of positive evaluations)
-        or <span class="warning"><i class="fa fa-exclamation-triangle"></i> controversial</span>. After stabilization, we get the final results:
+        or <span class="warning"><i class="fa fa-exclamation-triangle"></i> controversial</span>. After stabilization, we get the dumb results:
       </p>
       <ul>
         <li>
@@ -176,7 +177,7 @@
         This means that any review attributing 1 <i class="fa fa-star"></i> to a product will be considered as <em>not useful</em>,
         and any review attributing 2 <i class="fa fa-star"></i> will be considered as <em>polemical</em>. Other reviews
         will be considered <em>useful</em>. The final f1 score of our network is 0.37, meaning it is behaving as a
-        random classifier. This network does not help a lot, but it reveals one thing: the repartition of helpful rate based on the review's grade.
+        random classifier. This network does not help a lot, but it reveals one thing: the distribution of helpful rate based on the review's grade.
       </p>
       <helpfulness-distribution></helpfulness-distribution>
       <p>
@@ -220,6 +221,26 @@
       <p>
         All these words belong to a same category and usage (here computer software and hardware specifications). We can
         use the whole words generated data as a new feature to predict the helpful rate of each review.
+      </p>
+      <p>
+        The process used to train our classifier is the following one:
+      </p>
+      <p>
+        <img src="../images/processing.svg" width="100%" data-aos="fade-in" />
+      </p>
+      <p>
+        The NLTK preprocessor is used to <em>clean</em> the review text before using it as a feature. You can see an example here:
+      </p>
+      <p class="quotation">
+        <span class="quote">&laquo;</span>
+        Words really can describe how wonderful this game is. The first thing you will notice is the incredible graphics (note: a 3D card is not required!.) Everything is drawn in great detail right down to character traits and facial expressions (who would have thought a fleshless person would be so good with expressions.) The story is also very entertaining and added with the graphics, it makes this a very absorbing adventure. This is one of the few games that I can't say anything negative about. This is a must have!
+        <span class="quote">&raquo;</span>
+      </p>
+      <p>
+        Is turned into the following words list:
+        <template v-for="word in ['word', 'really', 'describe', 'wonderful', 'game', 'first', 'thing', 'notice', 'incredible', 'graphic', 'note', '3d', 'card', 'require', 'everything', 'draw', 'great', 'detail', 'right', 'character', 'trait', 'facial', 'expression', 'would', 'think', 'fleshless', 'person', 'would', 'good', 'expression', 'story', 'also', 'entertaining', 'add', 'graphic', 'make', 'absorbing', 'adventure', 'one', 'game', 'say', 'anything', 'negative', 'must']">
+          <span class="badge badge-word">{{ word }}</span>&nbsp;
+        </template>
       </p>
       <p>
         You can now discover the results for the predictability of each review. We use the f1 score, which allow to evaluate

@@ -68,13 +68,24 @@ hr {
 
 section {
   &.intro {
-    font-size: 1.3em;
     font-family: Raleway, sans-serif;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p, li {
+      font-size: 1.3em;
+
+      li {
+        font-size: 1em;
+      }
+    }
 
     img {
       display: block;
       max-width: 400px;
-      margin: 30px auto;
+      margin: 60px auto 30px;
     }
   }
 
@@ -140,6 +151,11 @@ section {
   vertical-align: baseline;
   border-radius: .25em;
   background-color: #404040;
+
+  &.badge-word {
+    background: #eeeeee;
+    color: #303030;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -149,6 +165,18 @@ section {
 ::-moz-placeholder {
   color: #bfbfbf;
   opacity: 1;
+}
+
+.quotation {
+  font-style: italic;
+
+  .quote {
+    font-size: 2em;
+    line-height: 0;
+    font-weight: bold;
+    vertical-align: -3px;
+    color: #404040;
+  }
 }
 
 @import 'chart';

@@ -97,7 +97,7 @@
           {
             grade: 5,
             price: '30',
-            review: 'The ADA course was really great, I learn a lot of things. Hooray! Randomness is the lack of pattern or predictability in events. A random sequence of events, symbols or steps has no order and does not follow an intelligible pattern or combination. Individual random events are by definition unpredictable, but in many cases the frequency of different outcomes over a large number of events (or "trials") is predictable. HODL ADA. For example, when throwing two dice, the outcome of any particular roll is unpredictable, but a sum of 7 will occur twice as often as 4. In this view, randomness is a measure of uncertainty of an outcome, rather than haphazardness, and applies to concepts of chance, probability, and information entropy.',
+            review: 'The ADA course was really great, I learnt a lot of things. Hooray! Randomness is the lack of pattern or predictability in events. A random sequence of events, symbols or steps has no order and does not follow an intelligible pattern or combination. Individual random events are by definition unpredictable, but in many cases the frequency of different outcomes over a large number of events (or "trials") is predictable. HODL ADA. For example, when throwing two dice, the outcome of any particular roll is unpredictable, but a sum of 7 will occur twice as often as 4. In this view, randomness is a measure of uncertainty of an outcome, rather than haphazardness, and applies to concepts of chance, probability, and information entropy.',
             summary: 'I loved this course!'
           },
           {
@@ -108,9 +108,9 @@
           },
           {
             grade: 1,
-            price: 36,
-            review: 'The absolute worst Dreamcast game I have ever played. I would not even take this game if it was given to me for free.',
-            summary: 'Not worth it at any price'
+            price: 8.9,
+            review: "I ordered this using a gift card I received for christmas and was anxious for it to arrive. The thought of having 2 wii remotes ready at all times without having to replace batteries was a nice thought.Well, a few days later the initial charger arrived, I un-boxed it and found the metal prongs on charging stand #2 were bent and would not allow a remote to charge in slot #2, slot #1 worked just fine... I did the return process which was very easy and that same day Amazon shipped out a replacement order.Yesterday I received the replacement unit, everything looked fine. I hooked it up and put the batteries in as directed and let the system charge for 24 hours. The lights turned from orange to green which meant the controllers were charged so I tried to play a game this morning... I used controller #1 and as soon as I started pushing buttons the controller powered off. I had to keep hitting the \"A\" button to get the remote to keep turning on then pressing \"1\" to get the first player to work.  That wasn't working, every 10 seconds the controller turned off...I never tried controller #2, I figured #1 wasn't working I wasn't about to keep the charger at this point so I returned the second unit in the mail today... This was not a successful venture and I have since put the standard AA batteries in and have played many games successfully with those. I know my controllers are good, this had to be another defective unit.",
+            summary: '2 defective units received?? Really??'
           },
           {
             grade: 5,
