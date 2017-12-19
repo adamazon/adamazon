@@ -9,8 +9,8 @@
       <p>
         Amazon Reviews are done by thousands of people to share their advices and analysis regarding products
         across dozens of categories and subcategories. These reviews influence the potential
-        buyers to either make them more confident in their purchas or discuraging them to buy the product. There reviews are in turn 
-        rated by the customers who use them and thu help the other customers to decide which reviews are trustworthy and which reviews 
+        buyers to either make them more confident in their purchases or discouraging them to buy the product. These reviews are in turn
+        rated by the customers who use them and thus help the other customers to decide which reviews are trustworthy and which reviews
         of the product are biased. We have focused on determining the factors that make a review <em>good</em> and what product's features 
         influence the reviews. 
         
@@ -19,26 +19,22 @@
       </p>
       <div class="row align-items-center">
         <div class="col-12 col-md-4">
-          <h2Contents at a glance</h2>
+          <h2>Contents at a glance</h2>
           <ul>
             <li>
-              <a href="#db-description">Dataset description</a>
-            </li>
-             <li>
-              <a href="#ds-explor">Data Exploration</a>
+              <a href="#ds-explor">Dataset Exploration</a>
               <ul>
                 <li>
-                <a href="#who-is-reviewer">What is a review?</a>
+                  <a href="#what-is-review">What is a review?</a>
                 </li>
-                <a href="#who-is-reviewer">Who is a reviewer?</a>
+                <li>
+                  <a href="#who-is-reviewer">Who is a reviewer?</a>
                 </li>
               </ul>
-              </li>
-              // From finding correlation to text analysis in data exploitation and then third makor point is conclusion.
-              <li>
-                <a href="#finding-correlations">Finding correlations</a>
-              
-               <ul>
+            </li>
+            <li>
+              <a href="#finding-correlations">Finding correlations</a>
+              <ul>
                 <li>
                   <a href="#dumb-network">The dumb network</a>
                 </li>
@@ -61,7 +57,7 @@
       </div>
     </section>
     <section>
-      <h2 id="db-description">Dataset Used</h2>
+      <h2 id="ds-explor">Dataset Exploration</h2>
       <p>
         We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down" id="ups-and-down-cite">[1]</a></sup>
         containing Amazon product reviews (142.8 million) and metadata. We will more precisely focus on the Video Games section
@@ -69,7 +65,6 @@
         about 1,300,000 reviews (after de-duplication) and will be useful to reduce bias in our analysis, as we could expect
         reviews to be done based on the same family of criteria.
       </p>
-      <h2 id="ds-explor">Dataset Exploration</h2>
       <h3 id="what-is-review">What is a review?</h3>
       <p>
         If you're not familiar with Amazon or the concept of <em>review</em>, here is what it look likes:
@@ -121,13 +116,13 @@
       </p>
       <reviews-distribution></reviews-distribution>
       <p>
-          We can see here an extract of the products database (one on twenty product) sorted by the number of reviews.
+          We can see here an extract of the products database (one on twenty products) sorted by the number of reviews.
           Some products are attracting more attention; we will focus on them in our next observations.
       </p>
       <reviews-numbers></reviews-numbers>
     </section>
     <section>
-      <h2 id="who-is-reviewer">Who is a reviewer?</h2>
+      <h3 id="who-is-reviewer">Who is a reviewer?</h3>
       <p>
         Now that we know what a review is, let's find out what behavior defines reviewers of the <em>video games</em>
         category. Distribution of the numbers of reviews per reviewer is following a power law, meaning the major part
