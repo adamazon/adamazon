@@ -208,8 +208,9 @@
     <section>
       <h2 id="text-analysis">Text analysis</h2>
       <p>
-        We now start a text analysis to use review's content to build our new classifier. To do so, we use <em>Word2Vec</em>
-        embeddings to use words as a new feature. The following
+        We now start a text analysis to use review's content to build our new classifier. <strong>We will only try
+        to predict if a review is useful or not useful, if the review's gets more or less than 50% positive evaluations.</strong>
+        To do so, we use <em>Word2Vec</em> embeddings to use words as a new feature. The following
         plot shows how the word space is built. Words with close meanings are nearby each other.
       </p>
       <words-plot></words-plot>
