@@ -22,7 +22,7 @@
           <h2>Contents at a glance</h2>
           <ul>
             <li>
-              <a href="#ds-explor">Dataset Exploration</a>
+              <a href="#ds-explor">Dataset exploration</a>
               <ul>
                 <li>
                   <a href="#what-is-review">What is a review?</a>
@@ -33,18 +33,13 @@
               </ul>
             </li>
             <li>
-              <a href="#finding-correlations">Finding correlations</a>
-              <ul>
-                <li>
-                  <a href="#dumb-network">The dumb network</a>
-                </li>
-                <li>
-                  <a href="#digging-features">Digging for features</a>
-                </li>
-              </ul>
+              <a href="#dumb-network">The dumb network</a>
             </li>
             <li>
               <a href="#text-analysis">Text analysis</a>
+            </li>
+            <li>
+              <a href="#digging-features">Features selection</a>
             </li>
             <li>
               <a href="#your-reviews">Are your reviews useful?</a>
@@ -57,7 +52,7 @@
       </div>
     </section>
     <section>
-      <h2 id="ds-explor">Dataset Exploration</h2>
+      <h2 id="ds-explor">Dataset exploration</h2>
       <p>
         We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down" id="ups-and-down-cite">[1]</a></sup>
         containing Amazon product reviews (142.8 million) and metadata. We will more precisely focus on the Video Games section
@@ -131,7 +126,7 @@
     </section>
     <section>
       <p>
-        The above visualisation represents each of the <strong class="colored">24,303 reviewers</strong> as a dot. The population is split into two groups, so that each group
+        The below visualisation represents each of the <strong class="colored">24,303 reviewers</strong> as a dot. The population is split into two groups, so that each group
         produced 50% of the total number of reviews (<strong>115,890</strong> reviews each). We can see that few
         customers wrote the majority of reviews.
       </p>
@@ -146,12 +141,11 @@
       </p>
     </section>
     <section>
-      <h2 id="finding-correlations">Finding correlations</h2>
+      <h2 id="dumb-network">The dumb network</h2>
       <p>
         We will use machine learning methods to find out which factors should naturally be taken into account to predict
         the final <em>helpfulness</em> of a review.
       </p>
-      <h3 id="dumb-network">The dumb network</h3>
       <p>
         To better understand data distribution and be more critical about the results found by the neural network, we will
         introduce features progressively. We first only use the product's grade given by the review.
@@ -185,46 +179,28 @@
       <p>
         This means that any review attributing 1 <i class="fa fa-star"></i> to a product will be considered as <em>not useful</em>,
         and any review attributing 2 <i class="fa fa-star"></i> will be considered as <em>polemical</em>. Other reviews
-        will be considered <em>useful</em>. The final f1 score of our network is 0.37, meaning it is behaving as a
-        random classifier. This network does not help a lot, but it reveals one thing: the distribution of helpful rate based on the review's grade.
+        will be considered <em>useful</em>. The final f1-score of our network is 0.39: this network does not help a lot
+        but it reveals one thing: the distribution of helpful rate based on the review's grade.
       </p>
       <helpfulness-distribution></helpfulness-distribution>
       <p>
         Amazon reviews which are giving a lower grade are more likely to get lower evaluations by other customers. This may be due
         to overstated reviews and product bashing. When trying to take into account the review length or the review summary
-        length, we get approximately the same accuracy (around 0.54). We need to use better machine learning methods
+        length, we get approximately the same f1-score. We need to use better machine learning methods
         and select more precisely which parts of the review should be taken into account.
-      </p>
-      <h3 id="digging-features">Digging for features</h3>
-      <p>
-        We will now start digging for interesting features which could be used to predict the helpful rate of the review.
-        The explored features are the following (<i class="fa fa-check-circle"></i> means the feature was used by
-        the final classifier, <i class="fa fa-times-circle"></i> means it was rejected):
-      </p>
-      <features></features>
-      <p>
-        Most of the features are properties of the review (derived form its contents), but some products features are also
-        used such as its price.
-        As we can see here, mostly the review's grade, length and contents have a real impact on the final helpfulness. This
-        is confirmed when looking at features importance:
-      </p>
-      <features-importance></features-importance>
-      <p>
-        This features importance is generated after a training with all video games reviews. To improve our predictions,
-        we will need to use the final contents as a vector of features to produce a good classification of the results.
       </p>
     </section>
     <section>
       <h2 id="text-analysis">Text analysis</h2>
       <p>
-        We now start a text analysis to use review's content to build our new classifier. <strong>We will only try
+        We now start a text analysis to use the text features (review's content and summary) in our new classifier. <strong>We will only try
         to predict if a review is useful or not useful, if the review's gets more or less than 50% positive evaluations.</strong>
-        To do so, we use <em>Word2Vec</em> embeddings to use words as a new feature. The following
-        plot shows how the word space is built. Words with close meanings are nearby each other.
+        To do so, we use <em>Word2Vec</em> embeddings. The following
+        plot shows how the word space is built, based on all the video games reviews. Words with close meanings are nearby each other.
       </p>
       <words-plot></words-plot>
       <p>
-        We can focus on the group framed in orange. We get the following words (you can zoom by selecting a group of words
+        We can focus on the cluster framed in orange. We get the following words (you can zoom by selecting a group of words
         by drawing a frame around them):
       </p>
       <words-specs-plot></words-specs-plot>
@@ -252,14 +228,30 @@
           <span class="badge badge-word">{{ word }}</span>&nbsp;
         </template>
       </p>
+    </section>
+    <section>
+      <h2 id="digging-features">Features selection</h2>
       <p>
-        You can now discover the results for the predictability of each review. We use the f1 score, which allow to evaluate
+        We will now start digging for interesting features which could be used to predict the helpful rate of the review.
+        The explored features are the following (<i class="fa fa-check-circle"></i> means the feature was used by
+        the final classifier, <i class="fa fa-times-circle"></i> means it was rejected):
+      </p>
+      <features></features>
+      <p>
+        Most of the features are properties of the review (derived form its contents), but some products features are also
+        used such as its price.
+        As we can see here, mostly the review's grade, length and contents have a real impact on the final helpfulness. This
+        is confirmed when looking at features importance:
+      </p>
+      <features-importance></features-importance>
+      <p>
+        You can now discover the results for the predictability of each review. We use the f1-score, which allows to evaluate
         if the model is good or not and is resistant to imbalanced data.
       </p>
       <bench></bench>
       <p>
         We have a good average of prediction. Using a classifier trained on the whole data, we are able to predict the helpful
-        rate of PC Games reviews with a precision of 72%. We can understand which factors behind the review (features) were mainly used
+        rate of PC Games reviews with a f1-score of 72%. We can understand which factors behind the review (features) were mainly used
         by the classifier:
       </p>
       <table>
