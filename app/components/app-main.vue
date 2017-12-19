@@ -238,12 +238,15 @@
       </p>
       <features></features>
       <p>
-        Most of the features are properties of the review (derived form its contents), but some products features are also
-        used such as its price.
-        As we can see here, mostly the review's grade, length and contents have a real impact on the final helpfulness. This
-        is confirmed when looking at features importance:
+        Most of the features are properties of the review (derived from its contents), but some products features are also
+        used such as its price. This is confirmed when looking at features importance:
       </p>
       <features-importance></features-importance>
+      <p>
+        We can see that the Word2Vec embeddings are used properly as review text is used at 60% by the classifier and dominates other
+        features.
+        We can also see that mostly the review's grade, length and contents have a noticeable impact on the final helpfulness.
+      </p>
       <p>
         You can now discover the results for the predictability of each review. We use the f1-score, which allows to evaluate
         if the model is good or not and is resistant to imbalanced data.
