@@ -1,32 +1,44 @@
 <template>
   <main>
     <h1>
-      Adamazon<br /><small>Investigating factors behind product reviews</small><br />
-      <span class="team">Victor Le, Quentin de Longraye, Karttikeya Mangalam &bull; ADA &bull; EPFL &bull; 12/19/2017</span>
+      Adamazon<br /><small>Investigating Factors Behind Product Reviews</small><br />
+      <span class="team">de Longraye Quentin, Le Victor,  Mangalam Karttikeya &bull; ADA &bull; EPFL &bull; 12/19/2017</span>
     </h1>
     <hr />
     <section class="intro">
       <p>
-        Reviews on Amazon are done by thousands of people to share their advices and analysis regarding products
-        in dozens of categories and subcategories. These reviews can influence positively or negatively the potential
-        buyers to make their purchase a reality or buy an other product. We will here try to focus on which factors
-        can determine whether a review is <em>good</em> and which product's features can influence reviews. Check out also
-        this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and our
-        <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">detailed analysis</a>.
+        Amazon Reviews are done by thousands of people to share their advices and analysis regarding products
+        across dozens of categories and subcategories. These reviews influence the potential
+        buyers to either make them more confident in their purchas or discuraging them to buy the product. There reviews are in turn 
+        rated by the customers who use them and thu help the other customers to decide which reviews are trustworthy and which reviews 
+        of the product are biased. We have focused on determining the factors that make a review <em>good</em> and what product's features 
+        influence the reviews. 
+        
+        Check out also this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and our
+        <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">code</a> for detailed analysis.
       </p>
       <div class="row align-items-center">
         <div class="col-12 col-md-4">
-          <h2>Summary</h2>
+          <h2Contents at a glance</h2>
           <ul>
             <li>
-              <a href="#what-is-review">What is a review?</a>
+              <a href="#db-description">Dataset description</a>
             </li>
-            <li>
-              <a href="#who-is-reviewer">Who is a reviewer?</a>
-            </li>
-            <li>
-              <a href="#finding-correlations">Finding correlations</a>
+             <li>
+              <a href="#ds-explor">Data Exploration</a>
               <ul>
+                <li>
+                <a href="#who-is-reviewer">What is a review?</a>
+                </li>
+                <a href="#who-is-reviewer">Who is a reviewer?</a>
+                </li>
+              </ul>
+              </li>
+              // From finding correlation to text analysis in data exploitation and then third makor point is conclusion.
+              <li>
+                <a href="#finding-correlations">Finding correlations</a>
+              
+               <ul>
                 <li>
                   <a href="#dumb-network">The dumb network</a>
                 </li>
@@ -49,7 +61,7 @@
       </div>
     </section>
     <section>
-      <h2 id="what-is-review">What is a review?</h2>
+      <h2 id="db-description">Dataset Used</h2>
       <p>
         We will use data from <em>Amazon product data</em><sup><a href="#ups-and-down" id="ups-and-down-cite">[1]</a></sup>
         containing Amazon product reviews (142.8 million) and metadata. We will more precisely focus on the Video Games section
@@ -57,6 +69,8 @@
         about 1,300,000 reviews (after de-duplication) and will be useful to reduce bias in our analysis, as we could expect
         reviews to be done based on the same family of criteria.
       </p>
+      <h2 id="ds-explor">Dataset Exploration</h2>
+      <h3 id="what-is-review">What is a review?</h3>
       <p>
         If you're not familiar with Amazon or the concept of <em>review</em>, here is what it look likes:
       </p>
