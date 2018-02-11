@@ -2,7 +2,7 @@
   <main>
     <h1>
       Adamazon<br /><small>Investigating Factors Behind Product Reviews</small><br />
-      <span class="team">de Longraye Quentin, Le Victor,  Mangalam Karttikeya &bull; ADA &bull; EPFL &bull; 12/19/2017</span>
+      <span class="team">Quentin de Longraye &amp; Victor Le &bull; ADA &bull; EPFL &bull; 12/19/2017</span>
     </h1>
     <hr />
     <section class="intro">
@@ -11,9 +11,9 @@
         across dozens of categories and subcategories. These reviews influence the potential
         buyers to either make them more confident in their purchases or discouraging them to buy the product. These reviews are in turn
         rated by the customers who use them and thus help the other customers to decide which reviews are trustworthy and which reviews
-        of the product are biased. We have focused on determining the factors that make a review <em>good</em> and what product's features 
-        influence the reviews. 
-        
+        of the product are biased. We have focused on determining the factors that make a review <em>good</em> and what product's features
+        influence the reviews.
+
         Check out also this website's <a href="https://github.com/adamazon/adamazon" target="_blank">source code</a> and our
         <a href="https://github.com/Coac/epfl-ada/tree/master/Project" target="_blank">code</a> for detailed analysis.
       </p>
@@ -102,19 +102,19 @@
         if the review was useful for the other customers. It is determined by the vote of other customers. But before
         focusing on this aspect, let's see how reviews grades are distributed among products:
       </p>
-      <grades-distribution></grades-distribution>
+      <grades-distribution />
       <p>
         Users tend to give priority to the highest grades, 4 <i class="fa fa-star"></i> and 5 <i class="fa fa-star"></i>
         are representing more than 50% of the overall. There is a a slightly increase between 2 <i class="fa fa-star"></i>
         and 1 <i class="fa fa-star"></i>, which can be understood by the will to <em>punish</em> products when something
         went wrong for the customer. But are these reviews representative and equally distributed for all the products?
       </p>
-      <reviews-distribution></reviews-distribution>
+      <reviews-distribution />
       <p>
           We can see here an extract of the products database (one on twenty products) sorted by the number of reviews.
           Some products are attracting more attention; we will focus on them in our next observations.
       </p>
-      <reviews-numbers></reviews-numbers>
+      <reviews-numbers />
     </section>
     <section>
       <h3 id="who-is-reviewer">Who is a reviewer?</h3>
@@ -182,7 +182,7 @@
         will be considered <em>useful</em>. The final f1-score of our network is 0.39: this network does not help a lot
         but it reveals one thing: the distribution of helpful rate based on the review's grade.
       </p>
-      <helpfulness-distribution></helpfulness-distribution>
+      <helpfulness-distribution />
       <p>
         Amazon reviews which are giving a lower grade are more likely to get lower evaluations by other customers. This may be due
         to overstated reviews and product bashing. When trying to take into account the review length or the review summary
@@ -198,12 +198,12 @@
         To do so, we use <em>Word2Vec</em> embeddings. The following
         plot shows how the word space is built, based on all the video games reviews. Words with close meanings are nearby each other.
       </p>
-      <words-plot></words-plot>
+      <words-plot />
       <p>
         We can focus on the cluster framed in orange. We get the following words (you can zoom by selecting a group of words
         by drawing a frame around them):
       </p>
-      <words-specs-plot></words-specs-plot>
+      <words-specs-plot />
       <p>
         All these words belong to a same category and usage (here computer software and hardware specifications). We can
         use the whole words generated data as a new feature to predict the helpful rate of each review.
@@ -236,12 +236,12 @@
         The explored features are the following (<i class="fa fa-check-circle"></i> means the feature was used by
         the final classifier, <i class="fa fa-times-circle"></i> means it was rejected):
       </p>
-      <features></features>
+      <features />
       <p>
         Most of the features are properties of the review (derived from its contents), but some products features are also
         used such as its price. This is confirmed when looking at features importance:
       </p>
-      <features-importance></features-importance>
+      <features-importance />
       <p>
         We can see that the Word2Vec embeddings are used properly as review text is used at 60% by the classifier and dominates other
         features.
@@ -251,7 +251,7 @@
         You can now discover the results for the predictability of each review. We use the f1-score, which allows to evaluate
         if the model is good or not and is resistant to imbalanced data.
       </p>
-      <bench></bench>
+      <bench />
       <p>
         We have a good average of prediction. Using a classifier trained on the whole data, we are able to predict the helpful
         rate of PC Games reviews with a f1-score of 72%. We can understand which factors behind the review (features) were mainly used
@@ -291,7 +291,10 @@
         Now that we have investigated which factors are influencing the <em>helpfulness</em> of a review, you can try your
         own! Use the following input to write your review, and you will know...
       </p>
-      <reviewer></reviewer>
+      <p class="danger">
+        This feature is no longer available.
+      </p>
+      <reviewer />
     </section>
     <section>
       <p>
